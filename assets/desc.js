@@ -41,10 +41,10 @@ const DESC = {
     th:'แอปคู่กับอุปกรณ์ Bluetooth LE — จัดการสถานะด้วย MobX State Tree, อัปเดต OTA ผ่าน CodePush, รองรับหลายภาษา',
     lo:'ແອັບຄູ່ກັບອຸປະກອນ Bluetooth LE — ຈັດການສະຖານະດ້ວຍ MobX State Tree, ອັບເດດ OTA ຜ່ານ CodePush, ຮອງຮັບຫຼາຍພາສາ.' },
   greennation: {
-    en:'Fintech super-app: Mapbox and Google Maps, SumSub KYC onboarding, MeaWallet card provisioning, Intercom support, CodePush releases. Largest codebase I have worked in.',
-    vi:'Siêu ứng dụng fintech: Mapbox và Google Maps, định danh KYC SumSub, phát hành thẻ MeaWallet, hỗ trợ Intercom, cập nhật CodePush. Codebase lớn nhất tôi từng làm.',
-    th:'ซูเปอร์แอปฟินเทค: Mapbox และ Google Maps, ยืนยันตัวตน KYC ด้วย SumSub, ออกบัตรผ่าน MeaWallet, ซัพพอร์ตด้วย Intercom, ปล่อยอัปเดตด้วย CodePush เป็นโค้ดเบสที่ใหญ่ที่สุดที่เคยทำ',
-    lo:'ຊຸບເປີແອັບຟິນເທັກ: Mapbox ແລະ Google Maps, ຢືນຢັນຕົວຕົນ KYC ດ້ວຍ SumSub, ອອກບັດຜ່ານ MeaWallet, ຊັບພອດດ້ວຍ Intercom, ປ່ອຍອັບເດດດ້ວຍ CodePush. ເປັນໂຄດເບສໃຫຍ່ທີ່ສຸດທີ່ເຄີຍເຮັດ.' },
+    en:'Fintech super-app: Mapbox and Google Maps, SumSub KYC onboarding, MeaWallet card provisioning, Intercom support, Firebase messaging and CodePush releases. Around 7,400 commits over two and a half years.',
+    vi:'Siêu ứng dụng fintech: Mapbox và Google Maps, định danh KYC SumSub, phát hành thẻ MeaWallet, hỗ trợ Intercom, Firebase messaging và cập nhật CodePush. Khoảng 7.400 commit trong hai năm rưỡi.',
+    th:'ซูเปอร์แอปฟินเทค: Mapbox และ Google Maps, ยืนยันตัวตน KYC ด้วย SumSub, ออกบัตรผ่าน MeaWallet, ซัพพอร์ตด้วย Intercom, Firebase messaging และปล่อยอัปเดตด้วย CodePush ราว 7,400 คอมมิตในสองปีครึ่ง',
+    lo:'ຊຸບເປີແອັບຟິນເທັກ: Mapbox ແລະ Google Maps, ຢືນຢັນຕົວຕົນ KYC ດ້ວຍ SumSub, ອອກບັດຜ່ານ MeaWallet, ຊັບພອດດ້ວຍ Intercom, Firebase messaging ແລະ ປ່ອຍອັບເດດດ້ວຍ CodePush. ປະມານ 7,400 ຄອມມິດໃນສອງປີເຄິ່ງ.' },
   bulting: {
     en:'React Native app with in-app purchases, geolocation, social sign-in and push, alongside a React admin console and Java backend.',
     vi:'Ứng dụng React Native có mua hàng trong ứng dụng, định vị, đăng nhập mạng xã hội và thông báo đẩy, kèm bảng quản trị React và backend Java.',
