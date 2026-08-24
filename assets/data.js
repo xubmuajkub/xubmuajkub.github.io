@@ -29,7 +29,7 @@ const T_ = {
   ble:      {en:'Bluetooth LE hardware companion app',vi:'Ứng dụng đồng hành thiết bị Bluetooth LE',th:'แอปคู่กับอุปกรณ์ Bluetooth LE',lo:'ແອັບຄູ່ກັບອຸປະກອນ Bluetooth LE'},
   ops:      {en:'Operator app',vi:'Ứng dụng vận hành',th:'แอปสำหรับผู้ดูแลระบบ',lo:'ແອັບສຳລັບຜູ້ດຳເນີນງານ'},
   suite:    {en:'Multi-app product suite',vi:'Bộ sản phẩm nhiều ứng dụng',th:'ชุดผลิตภัณฑ์หลายแอป',lo:'ຊຸດຜະລິດຕະພັນຫຼາຍແອັບ'},
-  bank:     {en:'Core banking platform',vi:'Nền tảng ngân hàng lõi',th:'แพลตฟอร์มคอร์แบงกิ้ง',lo:'ແພລດຟອມຄໍແບັງກິ້ງ'},
+  bank:     {en:'Virtual bank',vi:'Ngân hàng số',th:'ธนาคารเสมือน',lo:'ທະນາຄານເສມືອນ'},
   neobank:  {en:'Green neobank',vi:'Ngân hàng số xanh',th:'นีโอแบงก์สายกรีน',lo:'ນີໂອແບັງສາຍຂຽວ'},
   market:   {en:'Marketplace',vi:'Sàn giao dịch',th:'มาร์เก็ตเพลส',lo:'ຕະຫຼາດອອນລາຍ'},
   dating:   {en:'Dating app',vi:'Ứng dụng hẹn hò',th:'แอปหาคู่',lo:'ແອັບຫາຄູ່'},
