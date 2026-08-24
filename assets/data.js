@@ -29,14 +29,17 @@ const T_ = {
   ble:      {en:'Bluetooth LE hardware companion app',vi:'Ứng dụng đồng hành thiết bị Bluetooth LE',th:'แอปคู่กับอุปกรณ์ Bluetooth LE',lo:'ແອັບຄູ່ກັບອຸປະກອນ Bluetooth LE'},
   ops:      {en:'Operator app',vi:'Ứng dụng vận hành',th:'แอปสำหรับผู้ดูแลระบบ',lo:'ແອັບສຳລັບຜູ້ດຳເນີນງານ'},
   suite:    {en:'Multi-app product suite',vi:'Bộ sản phẩm nhiều ứng dụng',th:'ชุดผลิตภัณฑ์หลายแอป',lo:'ຊຸດຜະລິດຕະພັນຫຼາຍແອັບ'},
+  proprty:  {en:'Property management platform',vi:'Nền tảng quản lý bất động sản cho thuê',th:'แพลตฟอร์มบริหารจัดการที่พัก',lo:'ແພລດຟອມບໍລິຫານຈັດການທີ່ພັກ'},
+  platform: {en:'Email marketing platform',vi:'Nền tảng email marketing',th:'แพลตฟอร์มการตลาดผ่านอีเมล',lo:'ແພລດຟອມການຕະຫຼາດຜ່ານອີເມວ'},
   saas:     {en:'Web platform',vi:'Nền tảng web',th:'แพลตฟอร์มเว็บ',lo:'ແພລດຟອມເວັບ'},
   aitool:   {en:'AI text generation tool',vi:'Công cụ sinh văn bản AI',th:'เครื่องมือสร้างข้อความด้วย AI',lo:'ເຄື່ອງມືສ້າງຂໍ້ຄວາມດ້ວຍ AI'},
 };
 
 const PROJECTS = [
-  P('bylateral','Bylateral','2026.08',null,'Innovators Hub Asia',['TBD'],T_.wip,R.sr,{current:true}),
+  P('stayra','Stayra','2026.02',null,'Freelance',['NestJS','TypeORM','PostgreSQL/PostGIS','Redis','Nuxt 4','Flutter','Next.js'],T_.proprty,R.fs,{current:true}),
+  P('bylateral','Bylateral','2026.08',null,'Innovators Hub Asia',['React','TypeScript','Redux Toolkit','React Query','Docker'],T_.suite,R.fs,{current:true}),
   P('harkmed-web','HARKmed Web','2024.12','2026.02','Innovators Hub Asia',['React','Redux Toolkit','TypeScript','Tailwind'],T_.medweb,R.rjs),
-  P('obello','Obello','2024.11','2026.07','Innovators Hub Asia',['React','MySQL','MongoDB'],T_.web,R.rjs),
+  P('obello','Obello','2023.02','2026.07','Innovators Hub Asia',['React','TypeScript','MUI','React Query','GrowthBook','Bun'],T_.platform,R.fs),
   P('msc','MessageClub Operator','2023.08','2024.05','DigiEx Group',['React Native','Expo','TypeScript','Tailwind'],T_.ops,R.rn),
   P('oncash','ON-CASH','2023.06','2024.02','DigiEx Group',['React Native','React','NestJS','TypeScript','MySQL'],T_.pay,R.rn),
   P('harkmed','HARKmed','2023.05','2025.11','Innovators Hub Asia',['React Native','MySQL','MongoDB'],T_.medical,R.sr),

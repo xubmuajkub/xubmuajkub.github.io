@@ -71,6 +71,13 @@
 
       body.appendChild(span('type', pick(p.type)));
 
+      if (typeof DESC !== 'undefined' && DESC[p.id]) {
+        var d = document.createElement('p');
+        d.className = 'desc';
+        d.textContent = pick(DESC[p.id]);
+        body.appendChild(d);
+      }
+
       var meta = document.createElement('p');
       meta.className = 'meta';
       meta.append(pick(p.role), ' · ', p.company);

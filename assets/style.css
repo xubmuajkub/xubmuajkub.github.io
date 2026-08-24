@@ -144,6 +144,14 @@ h3 { font-size: 1rem; font-weight: 700; margin: 0; letter-spacing: -.01em; }
   color: var(--accent);
 }
 
+.fullname {
+  margin: -.4em 0 1.6rem;
+  font-size: clamp(.85rem, 2.2vw, 1.05rem);
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+}
+
 .lede { max-width: var(--measure); color: var(--fg-dim); margin: 0 0 1.5rem; }
 
 .status { display: flex; align-items: center; gap: .55rem; font-size: .85rem; color: var(--fg-dim); margin: 0; }
@@ -198,7 +206,8 @@ h3 { font-size: 1rem; font-weight: 700; margin: 0; letter-spacing: -.01em; }
 
 .body { min-width: 0; }
 .role, .type { display: block; color: var(--fg-dim); font-size: .88rem; margin-top: .3rem; }
-.meta { margin: .2rem 0 0; font-size: .78rem; color: var(--fg-faint); }
+.desc { margin: .55rem 0 0; max-width: var(--measure); color: var(--fg-dim); font-size: .85rem; }
+.meta { margin: .5rem 0 0; font-size: .78rem; color: var(--fg-faint); }
 
 .stack { list-style: none; display: flex; flex-wrap: wrap; gap: .35rem; margin: .8rem 0 0; padding: 0; }
 .stack li {
