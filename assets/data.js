@@ -36,7 +36,7 @@ const T_ = {
 const PROJECTS = [
   P('bylateral','Bylateral','2026.08',null,'Innovators Hub Asia',['TBD'],T_.wip,R.sr,{current:true}),
   P('harkmed-web','HARKmed Web','2024.12','2026.02','Innovators Hub Asia',['React','Redux Toolkit','TypeScript','Tailwind'],T_.medweb,R.rjs),
-  P('obello','Obello','2024.11',null,'Innovators Hub Asia',['React','MySQL','MongoDB'],T_.web,R.rjs,{current:true}),
+  P('obello','Obello','2024.11','2026.07','Innovators Hub Asia',['React','MySQL','MongoDB'],T_.web,R.rjs),
   P('msc','MessageClub Operator','2023.08','2024.05','DigiEx Group',['React Native','Expo','TypeScript','Tailwind'],T_.ops,R.rn),
   P('oncash','ON-CASH','2023.06','2024.02','DigiEx Group',['React Native','React','NestJS','TypeScript','MySQL'],T_.pay,R.rn),
   P('harkmed','HARKmed','2023.05','2025.11','Innovators Hub Asia',['React Native','MySQL','MongoDB'],T_.medical,R.sr),

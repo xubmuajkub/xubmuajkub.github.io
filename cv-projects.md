@@ -28,7 +28,7 @@ Languages: English (advanced), Vietnamese.
 | # | Project | Type | Role | Duration | Stack |
 |---|---|---|---|---|---|
 | 1 | Bylateral | In progress | Senior Developer | Aug 2026 – present | TBD |
-| 2 | Obello | Web app | Senior ReactJS Developer | Nov 2024 – present | React, MySQL, MongoDB |
+| 2 | Obello | Web app | Senior ReactJS Developer | Nov 2024 – Jul 2026 | React, MySQL, MongoDB |
 | 3 | HARKmed | Medical mobile app w/ IoT device integration | Senior Developer | May 2023 – Nov 2025 | React Native, MySQL, MongoDB |
 | 4 | ON-CASH | Mobile payment app | Senior React Native Developer | Mar 2023 – Sep 2023 | React Native, React, NestJS, MySQL |
 | 5 | PREF Inc | Ecommerce web app | Senior ReactJS Developer | Nov 2022 – Dec 2023 | React, MongoDB, MySQL |
