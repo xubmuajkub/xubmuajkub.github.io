@@ -49,24 +49,11 @@
     var ol = document.getElementById('projects-list');
     ol.replaceChildren.apply(ol, PROJECTS.map(function (p) {
       var li = document.createElement('li');
-      if (p.current) li.className = 'is-current';
-
-      li.appendChild(span('years', period(p.start, p.end)));
-
       var body = document.createElement('div');
       body.className = 'body';
 
       var h = document.createElement('h3');
-      if (p.url) {
-        var a = document.createElement('a');
-        a.href = p.url;
-        a.textContent = p.name;
-        a.rel = 'noopener noreferrer';
-        a.target = '_blank';
-        h.appendChild(a);
-      } else {
-        h.textContent = p.name;
-      }
+      h.textContent = pick(p.name);
       body.appendChild(h);
 
       body.appendChild(span('type', pick(p.type)));
@@ -80,17 +67,8 @@
 
       var meta = document.createElement('p');
       meta.className = 'meta';
-      meta.append(pick(p.role), ' · ', p.company);
+      meta.textContent = pick(p.role);
       body.appendChild(meta);
-
-      var ul = document.createElement('ul');
-      ul.className = 'stack';
-      p.stack.forEach(function (s) {
-        var i = document.createElement('li');
-        i.textContent = s;
-        ul.appendChild(i);
-      });
-      body.appendChild(ul);
 
       li.appendChild(body);
       return li;

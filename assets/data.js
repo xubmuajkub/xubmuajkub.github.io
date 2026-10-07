@@ -1,8 +1,4 @@
-// Project data. `type` and `role` carry per-language copy.
-// Dates verified against git history where a repo exists locally.
-const P = (id,name,start,end,company,stack,type,role,extra={}) =>
-  ({ id, name, start, end, company, stack, type, role, ...extra });
-
+// Public portfolio categories and roles, with per-language copy.
 const R = {
   sr:  {en:'Senior Developer',vi:'Lập trình viên cấp cao',th:'นักพัฒนาอาวุโส',lo:'ນັກພັດທະນາອາວຸໂສ'},
   jr:  {en:'Junior Developer',vi:'Lập trình viên',th:'นักพัฒนาระดับต้น',lo:'ນັກພັດທະນາລະດັບຕົ້ນ'},
@@ -12,65 +8,53 @@ const R = {
 };
 
 const T_ = {
-  wip:      {en:'In progress',vi:'Đang thực hiện',th:'กำลังดำเนินการ',lo:'ກຳລັງດຳເນີນການ'},
-  web:      {en:'Web application',vi:'Ứng dụng web',th:'เว็บแอปพลิเคชัน',lo:'ແອັບເວັບ'},
-  mobile:   {en:'Mobile application',vi:'Ứng dụng di động',th:'แอปมือถือ',lo:'ແອັບມືຖື'},
-  medical:  {en:'Medical app with IoT device integration',vi:'Ứng dụng y tế tích hợp thiết bị IoT',th:'แอปการแพทย์เชื่อมต่ออุปกรณ์ IoT',lo:'ແອັບການແພດເຊື່ອມຕໍ່ອຸປະກອນ IoT'},
-  medweb:   {en:'Medical platform, web client',vi:'Nền tảng y tế, giao diện web',th:'แพลตฟอร์มการแพทย์ ฝั่งเว็บ',lo:'ແພລດຟອມການແພດ, ດ້ານເວັບ'},
-  pay:      {en:'Mobile payment app',vi:'Ứng dụng thanh toán di động',th:'แอปชำระเงินบนมือถือ',lo:'ແອັບຊຳລະເງິນມືຖື'},
-  ecom:     {en:'E-commerce platform',vi:'Nền tảng thương mại điện tử',th:'แพลตฟอร์มอีคอมเมิร์ซ',lo:'ແພລດຟອມອີຄອມເມີຊ'},
-  rental:   {en:'Truck rental app (Korea)',vi:'Ứng dụng thuê xe tải (Hàn Quốc)',th:'แอปเช่ารถบรรทุก (เกาหลี)',lo:'ແອັບເຊົ່າລົດບັນທຸກ (ເກົາຫຼີ)'},
-  invest:   {en:'Investment app (Korea)',vi:'Ứng dụng đầu tư (Hàn Quốc)',th:'แอปการลงทุน (เกาหลี)',lo:'ແອັບການລົງທຶນ (ເກົາຫຼີ)'},
-  health:   {en:'Healthcare consulting app',vi:'Ứng dụng tư vấn sức khỏe',th:'แอปให้คำปรึกษาด้านสุขภาพ',lo:'ແອັບໃຫ້ຄຳປຶກສາສຸຂະພາບ'},
-  care:     {en:'Care platform',vi:'Nền tảng chăm sóc',th:'แพลตฟอร์มดูแลผู้ป่วย',lo:'ແພລດຟອມການດູແລ'},
-  booking:  {en:'Booking app',vi:'Ứng dụng đặt chỗ',th:'แอปจองที่พัก',lo:'ແອັບຈອງບ່ອນ'},
-  disclose: {en:'Corporate disclosure system',vi:'Hệ thống công bố thông tin doanh nghiệp',th:'ระบบเปิดเผยข้อมูลองค์กร',lo:'ລະບົບເປີດເຜີຍຂໍ້ມູນອົງກອນ'},
-  drive:    {en:'Secure file storage',vi:'Lưu trữ tệp bảo mật',th:'ระบบจัดเก็บไฟล์แบบปลอดภัย',lo:'ລະບົບເກັບໄຟລ໌ແບບປອດໄພ'},
-  ble:      {en:'Bluetooth LE hardware companion app',vi:'Ứng dụng đồng hành thiết bị Bluetooth LE',th:'แอปคู่กับอุปกรณ์ Bluetooth LE',lo:'ແອັບຄູ່ກັບອຸປະກອນ Bluetooth LE'},
-  ops:      {en:'Operator app',vi:'Ứng dụng vận hành',th:'แอปสำหรับผู้ดูแลระบบ',lo:'ແອັບສຳລັບຜູ້ດຳເນີນງານ'},
-  suite:    {en:'Multi-app product suite',vi:'Bộ sản phẩm nhiều ứng dụng',th:'ชุดผลิตภัณฑ์หลายแอป',lo:'ຊຸດຜະລິດຕະພັນຫຼາຍແອັບ'},
-  bank:     {en:'Virtual bank',vi:'Ngân hàng số',th:'ธนาคารเสมือน',lo:'ທະນາຄານເສມືອນ'},
-  neobank:  {en:'Green neobank',vi:'Ngân hàng số xanh',th:'นีโอแบงก์สายกรีน',lo:'ນີໂອແບັງສາຍຂຽວ'},
-  market:   {en:'Marketplace',vi:'Sàn giao dịch',th:'มาร์เก็ตเพลส',lo:'ຕະຫຼາດອອນລາຍ'},
-  dating:   {en:'Dating app',vi:'Ứng dụng hẹn hò',th:'แอปหาคู่',lo:'ແອັບຫາຄູ່'},
-  social:   {en:'Social commerce site',vi:'Trang thương mại xã hội',th:'เว็บโซเชียลคอมเมิร์ซ',lo:'ເວັບໂຊຊຽວຄອມເມີຊ'},
-  portal:   {en:'Clinician portal',vi:'Cổng dành cho nhân viên y tế',th:'พอร์ทัลสำหรับบุคลากรทางการแพทย์',lo:'ພອດທັນສຳລັບບຸກຄະລາກອນທາງການແພດ'},
-  hiring:   {en:'AI writing tool for hiring',vi:'Công cụ viết AI cho tuyển dụng',th:'เครื่องมือเขียนด้วย AI สำหรับสรรหาบุคลากร',lo:'ເຄື່ອງມືຂຽນດ້ວຍ AI ສຳລັບການສັນຫາ'},
-  wallet:   {en:'Mobile wallet',vi:'Ví di động',th:'กระเป๋าเงินบนมือถือ',lo:'ກະເປົາເງິນມືຖື'},
-  device:   {en:'Bluetooth LE companion app',vi:'Ứng dụng đồng hành thiết bị Bluetooth LE',th:'แอปคู่กับอุปกรณ์ Bluetooth LE',lo:'ແອັບຄູ່ກັບອຸປະກອນ Bluetooth LE'},
-  proprty:  {en:'Property management platform',vi:'Nền tảng quản lý bất động sản cho thuê',th:'แพลตฟอร์มบริหารจัดการที่พัก',lo:'ແພລດຟອມບໍລິຫານຈັດການທີ່ພັກ'},
-  platform: {en:'Email marketing platform',vi:'Nền tảng email marketing',th:'แพลตฟอร์มการตลาดผ่านอีเมล',lo:'ແພລດຟອມການຕະຫຼາດຜ່ານອີເມວ'},
-  saas:     {en:'Web platform',vi:'Nền tảng web',th:'แพลตฟอร์มเว็บ',lo:'ແພລດຟອມເວັບ'},
-  aitool:   {en:'AI text generation tool',vi:'Công cụ sinh văn bản AI',th:'เครื่องมือสร้างข้อความด้วย AI',lo:'ເຄື່ອງມືສ້າງຂໍ້ຄວາມດ້ວຍ AI'},
+  "web": {
+    "en": "Web application",
+    "vi": "Ứng dụng web",
+    "th": "เว็บแอปพลิเคชัน",
+    "lo": "ແອັບເວັບ"
+  },
+  "mobile": {
+    "en": "Mobile application",
+    "vi": "Ứng dụng di động",
+    "th": "แอปมือถือ",
+    "lo": "ແອັບມືຖື"
+  },
+  "both": {
+    "en": "Web and mobile applications",
+    "vi": "Ứng dụng web và di động",
+    "th": "เว็บแอปและแอปมือถือ",
+    "lo": "ແອັບເວັບ ແລະ ແອັບມືຖື"
+  }
 };
 
 const PROJECTS = [
-  P('stayra','Stayra','2026.02',null,'Freelance',['NestJS','TypeORM','PostgreSQL/PostGIS','Redis','Nuxt 4','Flutter','Next.js'],T_.proprty,R.fs,{current:true}),
-  P('bylateral','Bylateral','2026.08',null,'Innovators Hub Asia',['NestJS','Spring Boot','Temporal','RabbitMQ','PostgreSQL','React'],T_.bank,R.fs,{current:true}),
-  P('harkmed-web','HARKmed Web','2024.12','2026.02','Innovators Hub Asia',['React','Redux Toolkit','TypeScript','Tailwind'],T_.portal,R.rjs),
-  P('obello','Obello','2023.02','2026.07','Innovators Hub Asia',['React','TypeScript','MUI','React Query','GrowthBook','Bun'],T_.platform,R.fs),
-  P('msc','MessageClub Operator','2023.08','2024.05','DigiEx Group',['React Native','Expo','TypeScript','Tailwind'],T_.ops,R.rn),
-  P('oncash','ON-CASH','2023.06','2024.02','DigiEx Group',['React Native','React','NestJS','TypeScript','MySQL'],T_.wallet,R.rn),
-  P('harkmed','HARKmed','2023.05','2025.11','Innovators Hub Asia',['React Native','MySQL','MongoDB'],T_.medical,R.sr),
-  P('sasha','Sasha BLE','2023.05','2026.08','Freelance',['React Native','Redux Toolkit','TypeScript','Tailwind'],T_.device,R.sr),
-  P('greennation','Green Nation','2023.02','2025.09','DigiEx Group',['React Native','React','TypeScript','Tailwind'],T_.neobank,R.fs),
-  P('bulting','Bulting','2023.02','2023.04','DigiEx Group',['React Native','React','Redux','Java'],T_.dating,R.fs),
-  P('kookrule','kookRule','2023.01','2023.04','DigiEx Group',['React','React Native','Java'],T_.market,R.fs),
-  P('pref','PREF Inc','2022.11','2023.12','DigiEx Group',['React','MongoDB','MySQL'],T_.ecom,R.rjs,{url:'http://prefinc.com/'}),
-  P('haksoop','Haksoop','2022.09','2023.01','DigiEx Group',['React Native','NestJS','TypeORM','TypeScript'],T_.market,R.fs),
-  P('branway','Branway','2022.08','2023.04','DigiEx Group',['Next.js','React','MobX','TypeScript'],T_.social,R.rjs),
-  P('itruck','iTruck','2022.07','2023.02','DigiEx Group',['React Native','Expo','TypeScript','Java','MySQL'],T_.market,R.fs,{url:'https://www.itruck.co.kr'}),
-  P('mercado','Mercado','2022.04','2023.03','DigiEx Group',['React','React Native','Node.js'],T_.ecom,R.fs),
-  P('bancow','BanCow','2021.08','2022.07','DigiEx Group',['React Native','Expo','Redux Toolkit','TypeScript'],T_.invest,R.sr,{url:'https://www.bancow.co.kr'}),
-  P('camping','Easy Camping','2021.11','2021.12','DigiEx Group',['React Native','TypeScript'],T_.booking,R.sr),
-  P('myfarm','my.farm','2021.06','2021.08','689Cloud',['React Native','React','TypeScript','Android'],T_.ecom,R.sr),
-  P('supercoder','SuperCoder Text Gen','2021.05','2023.04','DigiEx Group',['Angular','TypeScript','Java'],T_.hiring,R.fs),
-  P('careaid','Care-Aid System','2021.04','2023.06','689Cloud',['React Native','Expo','Redux Toolkit','React'],T_.market,R.sr),
-  P('selfcare','Self-Care','2021.03','2021.05','689Cloud',['React Native','React','TypeScript'],T_.health,R.sr),
-  P('pharma','Pharma Disclosure System','2020.04','2021.11','689Cloud',['React','Java'],T_.disclose,R.sr),
-  P('drive-mobile','689Cloud Secure Drive Mobile','2019.10','2020.09','689Cloud',['React Native'],T_.drive,R.sr),
-  P('carereach','Care Reach','2019.06','2019.12','689Cloud',['NativeScript'],T_.mobile,R.jr),
-  P('drive-web','689Cloud Secure Drive','2018.06','2019.06','689Cloud',['Angular','AngularJS','Java'],T_.drive,R.jr),
+  { id:"agriculture-commerce", name:{"en": "Agriculture commerce app", "vi": "Ứng dụng thương mại nông sản", "th": "แอปค้าสินค้าเกษตร", "lo": "ແອັບຄ້າສິນຄ້າກະສິກຳ"}, type:T_.mobile, role:R.sr },
+  { id:"banking-application", name:{"en": "Banking application", "vi": "Ứng dụng ngân hàng", "th": "แอปธนาคาร", "lo": "ແອັບທະນາຄານ"}, type:T_.both, role:R.fs },
+  { id:"booking-application", name:{"en": "Booking app", "vi": "Ứng dụng đặt chỗ", "th": "แอปจอง", "lo": "ແອັບຈອງ"}, type:T_.mobile, role:R.sr },
+  { id:"care-mobile", name:{"en": "Care services app", "vi": "Ứng dụng dịch vụ chăm sóc", "th": "แอปบริการดูแล", "lo": "ແອັບບໍລິການດູແລ"}, type:T_.mobile, role:R.jr },
+  { id:"care-platform", name:{"en": "Care services platform", "vi": "Nền tảng dịch vụ chăm sóc", "th": "แพลตฟอร์มบริการดูแล", "lo": "ແພລດຟອມບໍລິການດູແລ"}, type:T_.both, role:R.sr },
+  { id:"commerce-platform", name:{"en": "Commerce platform", "vi": "Nền tảng thương mại", "th": "แพลตฟอร์มการค้า", "lo": "ແພລດຟອມການຄ້າ"}, type:T_.both, role:R.fs },
+  { id:"connected-device", name:{"en": "Connected-device app", "vi": "Ứng dụng kết nối thiết bị", "th": "แอปเชื่อมต่ออุปกรณ์", "lo": "ແອັບເຊື່ອມຕໍ່ອຸປະກອນ"}, type:T_.mobile, role:R.sr },
+  { id:"corporate-reporting", name:{"en": "Corporate reporting system", "vi": "Hệ thống báo cáo doanh nghiệp", "th": "ระบบรายงานขององค์กร", "lo": "ລະບົບລາຍງານອົງກອນ"}, type:T_.web, role:R.sr },
+  { id:"dating-application", name:{"en": "Dating app", "vi": "Ứng dụng hẹn hò", "th": "แอปหาคู่", "lo": "ແອັບຫາຄູ່"}, type:T_.both, role:R.fs },
+  { id:"digital-banking", name:{"en": "Digital banking platform", "vi": "Nền tảng ngân hàng số", "th": "แพลตฟอร์มธนาคารดิจิทัล", "lo": "ແພລດຟອມທະນາຄານດິຈິຕອນ"}, type:T_.web, role:R.fs },
+  { id:"document-storage-mobile", name:{"en": "Document storage app", "vi": "Ứng dụng lưu trữ tài liệu", "th": "แอปจัดเก็บเอกสาร", "lo": "ແອັບເກັບເອກະສານ"}, type:T_.mobile, role:R.sr },
+  { id:"document-storage-web", name:{"en": "Document storage website", "vi": "Website lưu trữ tài liệu", "th": "เว็บไซต์จัดเก็บเอกสาร", "lo": "ເວັບໄຊເກັບເອກະສານ"}, type:T_.web, role:R.jr },
+  { id:"commerce-website", name:{"en": "E-commerce website", "vi": "Website thương mại điện tử", "th": "เว็บไซต์อีคอมเมิร์ซ", "lo": "ເວັບໄຊອີຄອມເມີຊ"}, type:T_.web, role:R.rjs },
+  { id:"education-marketplace", name:{"en": "Education marketplace", "vi": "Nền tảng kết nối dịch vụ giáo dục", "th": "ตลาดบริการการศึกษา", "lo": "ຕະຫຼາດບໍລິການການສຶກສາ"}, type:T_.mobile, role:R.fs },
+  { id:"email-marketing", name:{"en": "Email marketing platform", "vi": "Nền tảng tiếp thị qua email", "th": "แพลตฟอร์มการตลาดผ่านอีเมล", "lo": "ແພລດຟອມການຕະຫຼາດຜ່ານອີເມວ"}, type:T_.web, role:R.fs },
+  { id:"food-marketplace", name:{"en": "Food marketplace", "vi": "Sàn thương mại thực phẩm", "th": "ตลาดอาหารออนไลน์", "lo": "ຕະຫຼາດອາຫານອອນລາຍ"}, type:T_.both, role:R.fs },
+  { id:"health-consultation", name:{"en": "Health consultation app", "vi": "Ứng dụng tư vấn sức khỏe", "th": "แอปปรึกษาสุขภาพ", "lo": "ແອັບປຶກສາສຸຂະພາບ"}, type:T_.both, role:R.sr },
+  { id:"healthcare-mobile", name:{"en": "Healthcare mobile app", "vi": "Ứng dụng y tế di động", "th": "แอปสุขภาพบนมือถือ", "lo": "ແອັບສຸຂະພາບມືຖື"}, type:T_.mobile, role:R.sr },
+  { id:"healthcare-portal", name:{"en": "Healthcare web portal", "vi": "Cổng thông tin y tế", "th": "พอร์ทัลเว็บด้านสุขภาพ", "lo": "ພອດທັນເວັບດ້ານສຸຂະພາບ"}, type:T_.web, role:R.rjs },
+  { id:"investment-application", name:{"en": "Investment app", "vi": "Ứng dụng đầu tư", "th": "แอปการลงทุน", "lo": "ແອັບການລົງທຶນ"}, type:T_.mobile, role:R.sr },
+  { id:"messaging-operations", name:{"en": "Messaging operations app", "vi": "Ứng dụng quản lý tin nhắn", "th": "แอปจัดการข้อความ", "lo": "ແອັບຈັດການຂໍ້ຄວາມ"}, type:T_.mobile, role:R.rn },
+  { id:"mobile-wallet", name:{"en": "Mobile wallet", "vi": "Ví di động", "th": "กระเป๋าเงินบนมือถือ", "lo": "ກະເປົາເງິນມືຖື"}, type:T_.mobile, role:R.rn },
+  { id:"property-platform", name:{"en": "Property management platform", "vi": "Nền tảng quản lý bất động sản", "th": "แพลตฟอร์มบริหารอสังหาริมทรัพย์", "lo": "ແພລດຟອມບໍລິຫານອະສັງຫາລິມະຊັບ"}, type:T_.both, role:R.fs },
+  { id:"recruitment-writing", name:{"en": "Recruitment writing tool", "vi": "Công cụ viết cho tuyển dụng", "th": "เครื่องมือเขียนสำหรับการสรรหาบุคลากร", "lo": "ເຄື່ອງມືຂຽນສຳລັບການສັນຫາ"}, type:T_.web, role:R.fs },
+  { id:"social-commerce", name:{"en": "Social commerce website", "vi": "Website thương mại xã hội", "th": "เว็บไซต์โซเชียลคอมเมิร์ซ", "lo": "ເວັບໄຊໂຊຊຽວຄອມເມີຊ"}, type:T_.web, role:R.rjs },
+  { id:"vehicle-marketplace", name:{"en": "Vehicle marketplace", "vi": "Sàn thương mại xe", "th": "ตลาดรถออนไลน์", "lo": "ຕະຫຼາດລົດອອນລາຍ"}, type:T_.both, role:R.fs }
 ];
 
 const JOBS = [

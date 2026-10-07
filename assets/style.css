@@ -175,13 +175,14 @@ h3 { font-size: 1rem; font-weight: 700; margin: 0; letter-spacing: -.01em; }
 
 .jobs, .projects { list-style: none; margin: 0; padding: 0; }
 
-.jobs > li, .projects > li {
+.jobs > li {
   display: grid;
   grid-template-columns: 13rem 1fr;
   gap: 1.5rem;
   padding: 1.4rem 0;
   border-top: 1px solid var(--line);
 }
+.projects > li { padding: 1.4rem 0; border-top: 1px solid var(--line); }
 .jobs > li:first-child, .projects > li:first-child { border-top: 0; }
 
 .years {
@@ -209,16 +210,6 @@ h3 { font-size: 1rem; font-weight: 700; margin: 0; letter-spacing: -.01em; }
 .desc { margin: .55rem 0 0; max-width: var(--measure); color: var(--fg-dim); font-size: .85rem; }
 .meta { margin: .5rem 0 0; font-size: .78rem; color: var(--fg-faint); }
 
-.stack { list-style: none; display: flex; flex-wrap: wrap; gap: .35rem; margin: .8rem 0 0; padding: 0; }
-.stack li {
-  font-size: .7rem;
-  letter-spacing: .04em;
-  padding: .18rem .45rem;
-  color: var(--fg-dim);
-  border: 1px solid var(--line);
-  background: var(--bg-raise);
-}
-
 .skills { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); }
 .skills li {
   display: flex;
@@ -245,7 +236,7 @@ footer {
 footer p { max-width: 78rem; margin: 0 auto; }
 
 @media (max-width: 44rem) {
-  .jobs > li, .projects > li { grid-template-columns: 1fr; gap: .4rem; }
+  .jobs > li { grid-template-columns: 1fr; gap: .4rem; }
   .years { padding-top: 0; }
   .topbar nav { order: 3; width: 100%; margin-right: 0; }
 }
