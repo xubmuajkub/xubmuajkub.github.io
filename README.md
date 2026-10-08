@@ -14,7 +14,7 @@ Push to `main` and GitHub Pages serves it.
 | `assets/i18n.js` | UI strings for `en`, `vi`, `th`, `lo`. |
 | `assets/data.js` | Jobs, projects and skills. Per-language `name` / `type` / `role` copy. |
 | `assets/app.js` | Renders lists, handles the language switch (persisted in `localStorage`). |
-| `cv-projects.md` | Public CV summary mirroring the site categories and roles. |
+| `cv-projects.md` | Public CV summary mirroring the site project names and roles. |
 
 ## Editing
 
@@ -23,7 +23,7 @@ Add a project: append an object to `PROJECTS` in `assets/data.js` with
 languages for the name, type and role. Add the matching broad contribution to
 `DESC` in `assets/desc.js`, and update `cv-projects.md` to match.
 
-Keep public project entries category-based. Omit client names and links,
+Keep project display names and broad contributions in public entries. Omit client links,
 agency/employer mappings, engagement dates and status, and project-specific
 technology or infrastructure details. Keep employment history and general
 skills in their separate sections.
